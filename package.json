@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.tmp.css -w",
-    "watch:css": "postcss --replace -w --config postcss.config.js css/style.tmp.css -o css/style.css",
+    "watch": "postcss --replace -w --config postcss.config.js css/style.tmp.css -o css/style.css",
     "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
+    "start": "npm-run-all --parallel devserver watch:sass watch",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
     "prefix:css": "postcss --replace --config postcss.config.js css/style.comp.css -o css/style.prefix.css",
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
