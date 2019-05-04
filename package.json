@@ -1,0 +1,32 @@
+{
+  "name": "html-css-template",
+  "version": "1.0.0",
+  "description": "HTML5/CSS3 template",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.tmp.css -w",
+    "watch:css": "postcss --replace -w --config postcss.config.js css/style.tmp.css -o css/style.css",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --replace --config postcss.config.js css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build": "rm -rf css/* && npm-run-all compile:sass prefix:css compress:css",
+    "start-prod": "npm-run-all build devserver"
+  },
+  "author": "asmyshlyaev177@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1",
+    "postcss-import": "^12.0.1"
+  },
+  "dependencies": {
+    "reset-css": "^4.0.1",
+    "svgxuse": "^1.2.6"
+  }
+}
